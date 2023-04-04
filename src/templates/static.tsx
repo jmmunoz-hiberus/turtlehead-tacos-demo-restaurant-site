@@ -113,6 +113,7 @@ const Static: Template<ExternalImageRenderData> = ({
   document,
   externalImage,
 }) => {
+  const { _site } = document;
   return (
     <>
       <PageLayout>
@@ -148,6 +149,7 @@ const Static: Template<ExternalImageRenderData> = ({
             </p>
             <div>
               <Card {...externalImage} />
+              {_site.businessLogo}
             </div>
           </div>
         </div>

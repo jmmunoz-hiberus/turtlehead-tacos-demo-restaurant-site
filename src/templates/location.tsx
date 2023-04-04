@@ -25,7 +25,6 @@ import Hours from "../components/Hours";
 import List from "../components/List";
 import PageLayout from "../components/PageLayout";
 import StaticMap from "../components/StaticMap";
-import Favicon from "../public/yext-favicon.ico";
 import "../index.css";
 import EditTool from "../components/EditTool";
 import { isProduction } from "@yext/pages/util";
@@ -57,7 +56,7 @@ export const config: TemplateConfig = {
     },
     // The entity language profiles that documents will be generated for.
     localization: {
-      locales: ["en"],
+      locales: ["en", "es"],
       primary: false,
     },
   },
@@ -130,26 +129,25 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
  * components any way you'd like as long as it lives in the src folder (though you should not put
  * them in the src/templates folder as this is specific for true template files).
  */
-const Location: Template<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
+const Location: Template<any> = ({
   document,
+  __meta
 }) => {
   const {
+    _site,
     name,
     address,
+    opentime,
     hours,
     mainPhone,
     geocodedCoordinate,
     services,
-    description,
-    siteDomain,
   } = document;
 
   return (
     <>
-      <PageLayout>
-        <Banner name={name} address={address} />
+    <PageLayout _site={_site} templateData={{__meta, document}}>
+        <Banner name={name} address={address} openTime={openTime} />
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">

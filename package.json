@@ -6,24 +6,29 @@
   "license": "BSD-3-Clause",
   "type": "module",
   "scripts": {
-    "dev": "npm run build:local && yext pages generate-test-data && pages dev",
+    "dev": "npm run build:local && ./yext pages generate-test-data && ./yext pages develop",
     "build:local": "vite build",
-    "build": "yext pages build && yext pages generate-test-data && yext pages render",
-    "build:serve": "npm run build && yext pages serve",
-    "serve": "yext pages serve",
+    "build": "./yext pages build && ./yext pages generate-test-data && ./yext pages render",
+    "build:serve": "npm run build && ./yext pages serve",
+    "serve": "./yext pages serve",
     "features": "pages generate features",
     "fmt": "prettier -w .",
     "lint": "eslint .",
-    "clean": "rm -rf .artifact-output .yext/ dist/ localData sites-rendered-output",
+    "clean": "rm -rf .artifact-output ./yext/ dist/ localData sites-rendered-output",
     "generate-notices": "generate-license-file --input package.json --output ./THIRD-PARTY-NOTICES --overwrite"
   },
   "engines": {
     "node": ">=17"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.14",
+    "@types/mapbox-gl": "^2.7.10",
+    "@yext/search-headless-react": "^2.1.0",
+    "@yext/search-ui-react": "^1.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.8.0",
     "tailwind-merge": "^1.6.2"
   },
   "devDependencies": {
