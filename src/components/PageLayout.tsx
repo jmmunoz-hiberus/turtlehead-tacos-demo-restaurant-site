@@ -1,14 +1,14 @@
 import * as React from "react";
-import Site from "../types/Site";
+//import Site from "../types/Site";
 import Header from "./Header";
 import Footer from "./Footer";
 import { AnalyticsProvider, AnalyticsScopeProvider } from "@yext/pages/components";     
 import { TemplateProps } from "@yext/pages";                    
     
 type Props = {
-  _site: Site;
+  _site?: Site | null | string;
   children?: React.ReactNode;
-  templateData: TemplateProps;                                  
+  templateData?: TemplateProps;                                  
 };
     
 const PageLayout = ({ _site, children, templateData }: Props) => {

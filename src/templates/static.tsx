@@ -17,7 +17,6 @@ import {
 import PageLayout from "../components/PageLayout";
 import Card from "../components/Card";
 import { ExternalImage } from "../types/ExternalImage";
-import Favicon from "../public/yext-favicon.ico";
 
 /**
  * Not required depending on your use case.
@@ -75,9 +74,6 @@ type ExternalImageRenderData = TemplateRenderProps & {
  * This can include the title, meta tags, script tags, etc.
  */
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
 }): HeadConfig => {
   return {
     title: "Static Page Example",
@@ -91,14 +87,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: "Static page example meta description.",
         },
       },
-      {
-        type: "link",
-        attributes: {
-          rel: "icon",
-          type: "image/x-icon",
-          href: Favicon,
-        },
-      },
     ],
   };
 };
@@ -108,8 +96,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
  * The props passed in here are the direct result from `transformProps`.
  */
 const Static: Template<ExternalImageRenderData> = ({
-  relativePrefixToRoot,
-  path,
   document,
   externalImage,
 }) => {
@@ -149,7 +135,6 @@ const Static: Template<ExternalImageRenderData> = ({
             </p>
             <div>
               <Card {...externalImage} />
-              {_site.businessLogo}
             </div>
           </div>
         </div>

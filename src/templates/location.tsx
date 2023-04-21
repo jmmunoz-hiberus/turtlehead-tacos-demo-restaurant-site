@@ -92,8 +92,6 @@ export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
  * This can include the title, meta tags, script tags, etc.
  */
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
   document,
 }): HeadConfig => {
   return {
@@ -106,14 +104,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         attributes: {
           name: "description",
           content: document.description,
-        },
-      },
-      {
-        type: "link",
-        attributes: {
-          rel: "icon",
-          type: "image/x-icon",
-          href: Favicon,
         },
       },
     ],
@@ -137,17 +127,18 @@ const Location: Template<any> = ({
     _site,
     name,
     address,
-    opentime,
     hours,
     mainPhone,
     geocodedCoordinate,
     services,
+    description,
+    siteDomain,
   } = document;
 
   return (
     <>
     <PageLayout _site={_site} templateData={{__meta, document}}>
-        <Banner name={name} address={address} openTime={openTime} />
+        <Banner name={name} address={address}/>
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
