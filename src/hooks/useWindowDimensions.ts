@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { getRuntime } from "@yext/pages/util";
 
 function getWindowDimensions() {
-  if (!getRuntime().isServerSide) {
+  const isBrowser = typeof window !== "undefined";
+  if (!getRuntime().isServerSide && isBrowser){
     const { innerWidth: width, innerHeight: height } = window;
     return {
       width,
